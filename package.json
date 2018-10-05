@@ -1,0 +1,47 @@
+{
+  "name": "web-audio-mixer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "serve": "node app.js",
+    "start": "npm-run-all --parallel watch serve",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "browserify src/main.js -o public/bundle.js",
+    "watch": "watchify -p browserify-hmr src/main.js -o public/bundle.js --debug --verbose"
+  },
+  "browserify": {
+    "transform": [
+      "vueify",
+      "browserify-css",
+      "babelify"
+    ]
+  },
+  "browser": {
+    "vue": "vue/dist/vue.common.js"
+  },
+  "browserslist": "> 0.25%, not dead",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.4",
+    "@fortawesome/free-solid-svg-icons": "^5.3.1",
+    "@fortawesome/vue-fontawesome": "^0.1.1",
+    "express": "^4.16.3",
+    "jquery": "^3.3.1",
+    "vue": "^2.5.17",
+    "vue-slider-component": "^2.7.8",
+    "web-audio-beat-detector": "^6.0.79"
+  },
+  "devDependencies": {
+    "babel-core": "^6.0.0",
+    "babel-preset-env": "^1.7.0",
+    "babelify": "^7.3.0",
+    "browserify": "^16.2.3",
+    "browserify-css": "^0.14.0",
+    "browserify-hmr": "^0.3.6",
+    "npm-run-all": "^4.1.3",
+    "vueify": "^9.4.1",
+    "watchify": "^3.11.0"
+  }
+}
